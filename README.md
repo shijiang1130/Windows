@@ -1,4 +1,4 @@
-# powershell
+```powershell
 
 PS > Get-WmiObject win32_logicaldisk | ft DeviceID,{$_.FreeSpace/1GB},{$_.size/1GB}
 
