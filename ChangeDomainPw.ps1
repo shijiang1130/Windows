@@ -1,8 +1,8 @@
 function changedomainpw($domain)
 {
 param (    
-[System.Security.SecureString]$oldPassword = $( Read-Host -AsSecureString "Old password"),    
-[System.Security.SecureString]$newPassword = $( Read-Host -AsSecureString "New password")
+ $oldPassword = $( Read-Host -AsSecureString "Old password"),    
+ $newPassword = $( Read-Host -AsSecureString "New password")
 )
 
 $MethodDefinition = @'
