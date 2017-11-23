@@ -12,6 +12,4 @@ D:                                                                            0 
 PS > get-date
 
 Friday, November 17, 2017 1:53:54 AM
-
-
-PS >
+foreach($ip in (ipconfig) -like '*IPv4*') { ($ip -split ' : ')[-1]}
