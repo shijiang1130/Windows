@@ -1,0 +1,4 @@
+$PSise.Options.RestoreDefaults()
+$PSise.Options.RestoreDefaultConsoleTokenColors()
+$PSise.Options.RestoreDefaultTokenColors()
+$PSise.Options.RestoreDefaultXMLTokenColors()
