@@ -1,4 +1,5 @@
 ```powershell
+```powershell
 $PSise.Options.RestoreDefaults()
 $PSise.Options.RestoreDefaultConsoleTokenColors()
 $PSise.Options.RestoreDefaultTokenColors()
