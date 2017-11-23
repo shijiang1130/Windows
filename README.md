@@ -1,3 +1,6 @@
+4.0 for win7 64
+https://www.microsoft.com/en-us/download/details.aspx?id=40855
+
 ```powershell
 
 PS > Get-WmiObject win32_logicaldisk | ft DeviceID,{$_.FreeSpace/1GB},{$_.size/1GB}
