@@ -16,3 +16,33 @@ PS > get-date
 
 Friday, November 17, 2017 1:53:54 AM
 foreach($ip in (ipconfig) -like '*IPv4*') { ($ip -split ' : ')[-1]}
+
+
+function Test-MemoryUSage{
+[cmdletbinding()]
+Param()
+
+$os = Get-CimInstance win32_operatingsystem 
+$pctFree = [math]::Round(($os.FreePhysicalMemory/$os.TotalVisibleMemorySize)*100,2)
+
+if($pctFree -ge 45) {
+$status = "OK"
+}
+elseif($pctFree -ge 15) {
+$status = "Warning"
+}
+else {
+$status="Critical"
+}
+
+$os | Select @{Name = "Status";Expression = {$Status}},
+@{Name = "PctFree";Expression={$pctFree}},
+@{Name = "FreeGB";Expression={[math]::Round($_.FreePhysicalMemory/1mb,2)}},
+@{Name = "TotalGB";Expression={[int]($_.TotalVisibleMemorySize/1mb)}}
+}
+
+PS C:\Users\> Test-MemoryUSage | ft -AutoSize
+
+Status  PctFree FreeGB TotalGB
+------  ------- ------ -------
+Warning   26.33   1.02       4
